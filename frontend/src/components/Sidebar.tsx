@@ -86,6 +86,13 @@ const Sidebar: React.FC<SidebarProps> = ({
     padding: "16px 0",
   };
 
+  const getNavItemBackground = (page: string): string => {
+    if (currentPage === page) {
+      return COLORS.primary.p03;
+    }
+    return "transparent";
+  };
+
   const navItemStyle: React.CSSProperties = {
     width: "100%",
     padding: isCollapsed ? "16px" : "16px 24px",
@@ -93,7 +100,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     alignItems: "center",
     justifyContent: isCollapsed ? "center" : "flex-start",
     gap: "16px",
-    background: currentPage === "history" ? COLORS.primary.p03 : "transparent",
+    background: getNavItemBackground("history"),
     border: "none",
     cursor: "pointer",
     fontSize: "18px",
@@ -105,6 +112,18 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   const navTextStyle: React.CSSProperties = {
     display: isCollapsed ? "none" : "inline",
+  };
+
+  const handleNavMouseEnter = (page: string, e: React.MouseEvent<HTMLButtonElement>) => {
+    if (currentPage !== page) {
+      e.currentTarget.style.background = COLORS.primary.p02;
+    }
+  };
+
+  const handleNavMouseLeave = (page: string, e: React.MouseEvent<HTMLButtonElement>) => {
+    if (currentPage !== page) {
+      e.currentTarget.style.background = "transparent";
+    }
   };
 
   return (
@@ -138,37 +157,51 @@ const Sidebar: React.FC<SidebarProps> = ({
         </button>
       </div>
 
-      <nav style={navStyle}>
-        <button
-          style={navItemStyle}
-          onClick={() => onNavigate?.("history")}
-          onMouseEnter={(e) => {
-            if (currentPage !== "history") {
-              e.currentTarget.style.background = COLORS.primary.p02;
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (currentPage !== "history") {
-              e.currentTarget.style.background = "transparent";
-            }
-          }}
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-            <line x1="16" y1="2" x2="16" y2="6" />
-            <line x1="8" y1="2" x2="8" y2="6" />
-            <line x1="3" y1="10" x2="21" y2="10" />
-          </svg>
-          <span style={navTextStyle}>History</span>
-        </button>
-      </nav>
+       <nav style={navStyle}>
+         <button
+           style={{ ...navItemStyle, background: getNavItemBackground("history") }}
+           onClick={() => onNavigate?.("history")}
+           onMouseEnter={(e) => handleNavMouseEnter("history", e)}
+           onMouseLeave={(e) => handleNavMouseLeave("history", e)}
+         >
+           <svg
+             width="24"
+             height="24"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             strokeWidth="2"
+           >
+             <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+             <line x1="16" y1="2" x2="16" y2="6" />
+             <line x1="8" y1="2" x2="8" y2="6" />
+             <line x1="3" y1="10" x2="21" y2="10" />
+           </svg>
+           <span style={navTextStyle}>History</span>
+         </button>
+
+         <button
+           style={{ ...navItemStyle, background: getNavItemBackground("categories") }}
+           onClick={() => onNavigate?.("categories")}
+           onMouseEnter={(e) => handleNavMouseEnter("categories", e)}
+           onMouseLeave={(e) => handleNavMouseLeave("categories", e)}
+         >
+           <svg
+             width="24"
+             height="24"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             strokeWidth="2"
+           >
+             <path d="M19 11H5a2 2 0 00-2 2v6a2 2 0 002 2h14a2 2 0 002-2v-6a2 2 0 00-2-2z" />
+             <path d="M9 11V7a2 2 0 012-2h2a2 2 0 012 2v4" />
+             <circle cx="9" cy="17" r="1" />
+             <circle cx="15" cy="17" r="1" />
+           </svg>
+           <span style={navTextStyle}>Categories</span>
+         </button>
+       </nav>
     </aside>
   );
 };

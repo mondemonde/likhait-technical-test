@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Sidebar from "./components/Sidebar";
 import HistoryPage from "./pages/HistoryPage";
+import CategoriesPage from "./pages/CategoriesPage";
 import { COLORS } from "./constants/colors";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
       />
       <main style={mainStyle}>
         {currentPage === "history" && <HistoryPage />}
+        {currentPage === "categories" && <CategoriesPage />}
       </main>
     </div>
   );
