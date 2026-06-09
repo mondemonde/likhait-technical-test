@@ -13,7 +13,6 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
-      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
       test:
         [
@@ -42,23 +41,16 @@ services:
       DATABASE_HOST: db
       DATABASE_PORT: 3306
       DATABASE_NAME: expense_system_development
-      DATABASE_USERNAME: expense_user
-      DATABASE_PASSWORD: expense_password
+      DATABASE_USERNAME: root
+      DATABASE_PASSWORD: rootpassword
     ports:
       - "3000:3000"
     depends_on:
       db:
         condition: service_healthy
     volumes:
-      - ./backend:/rails
-      - backend_gems:/usr/local/bundle
-    command: >
-      sh -c "
-        bundle install &&
-        rails db:migrate &&
-        rails db:seed &&
-        rails server -b 0.0.0.0
-      "
+      - backend_gems:/rails/vendor/bundle
+    command: /rails/bin/docker-entrypoint rails server -b 0.0.0.0
     networks:
       - expense_network
 

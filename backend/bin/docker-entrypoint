@@ -1,13 +1,35 @@
-#!/bin/bash -e
+#!/bin/bash
+
+set -e
 
 # Enable jemalloc for reduced memory usage and latency.
 if [ -z "${LD_PRELOAD+x}" ] && [ -f /usr/lib/*/libjemalloc.so.2 ]; then
   export LD_PRELOAD="$(echo /usr/lib/*/libjemalloc.so.2)"
 fi
 
-# If running the rails server then create or migrate existing database
-if [ "${1}" == "./bin/rails" ] && [ "${2}" == "server" ]; then
-  ./bin/rails db:prepare
+# Wait for database to be ready
+if [ "${DATABASE_HOST:-}" != "" ]; then
+  echo "Waiting for database at $DATABASE_HOST..."
+  while ! /usr/bin/mysqladmin ping -h "$DATABASE_HOST" -u "$DATABASE_USERNAME" -p"$DATABASE_PASSWORD" --wait=30 > /dev/null 2>&1; do
+    sleep 1
+  done
+  echo "Database is ready!"
 fi
 
-exec "${@}"
+# If running the rails server then create or migrate existing database
+if [ "${1}" = "rails" ] && [ "${2}" = "server" ]; then
+  /rails/bin/rails db:prepare
+fi
+
+# Execute the command with proper argument handling
+if [ $# -eq 0 ]; then
+  exec /rails/bin/rails server -b 0.0.0.0
+else
+  # If the first argument is 'rails', use the full path and pass remaining args
+  if [ "$1" = "rails" ]; then
+    shift
+    exec /rails/bin/rails "$@"
+  else
+    exec "$@"
+  fi
+fi
