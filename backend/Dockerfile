@@ -9,7 +9,7 @@ WORKDIR /rails
 
 # Install base packages
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y build-essential ca-certificates default-mysql-client default-libmysqlclient-dev git && \
+    apt-get install --no-install-recommends -y build-essential ca-certificates default-mysql-client default-libmysqlclient-dev git libyaml-dev && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Install application gems
@@ -22,6 +22,9 @@ RUN bundle config set --local deployment 'false' && \
 
 # Copy application code
 COPY . .
+
+# Fix Windows line endings in all bin scripts and make them executable
+RUN sed -i 's/\r$//' /rails/bin/* && chmod +x /rails/bin/*
 
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile --gemfile app/ lib/
