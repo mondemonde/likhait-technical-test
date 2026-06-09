@@ -11,7 +11,8 @@
     "docker:restart-backend": "docker-compose down -v && docker-compose up -d db backend",
     "docker:logs": "docker-compose logs -f backend",
     "docker:ps": "docker-compose ps",
-    "docker:down": "docker-compose down -v"
+    "docker:down": "docker-compose down -v",
+    "docker:rebuild-backend": "docker-compose down -v && docker-compose build --no-cache backend && docker-compose up -d backend db"
   },
   "dependencies": {
     "react": "^18.2.0",
