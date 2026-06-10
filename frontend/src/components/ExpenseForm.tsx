@@ -83,6 +83,7 @@ export function ExpenseForm({
         label="Date"
         type="date"
         value={formData.date}
+        max={new Date().toISOString().split("T")[0]}
         onChange={(e) => handleChange("date", e.target.value)}
         error={errors.date}
         fullWidth
