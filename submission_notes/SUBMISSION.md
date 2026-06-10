@@ -65,5 +65,5 @@ so I need to fix it first so i create a branch for this and i need to merge this
 
 branch: [bugfix/002-docker](https://github.com/mondemonde/likhait-technical-test/blob/bugfix/001-sort-date/submission_notes/docker-backend-fix.md)
 
-description: [bugfix/002-docker](https://github.com/mondemonde/likhait-technical-test/blob/bugfix/001-sort-date/submission_notes/docker-backend-fix.md)
+description: [task details](https://github.com/mondemonde/likhait-technical-test/blob/bugfix/001-sort-date/submission_notes/docker-backend-fix.md)
 
