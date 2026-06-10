@@ -4,16 +4,21 @@ This notes explain the content of the different branches created in this repo
 ## 1. BugFix 001: Date sorting issue
 
 PR :
+https://github.com/mondemonde/likhait-technical-test/pull/1/changes/e1c4f8886b21595d752bf2bd3106a4eadf9322fa
 
 Branch:
+https://github.com/mondemonde/likhait-technical-test/tree/bugfix/001-date-sorting
 
 Branch with Docker Fix:
+https://github.com/mondemonde/likhait-technical-test/tree/bugfix/001-sort-date
 
 ## 2. Feature 001: Catalog Management
 
 PR :
 
+
 Branch:
+https://github.com/mondemonde/likhait-technical-test/tree/feature/001-category-management
 
 Branch with Docker Fix:
 
