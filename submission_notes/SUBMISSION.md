@@ -12,17 +12,23 @@ https://github.com/mondemonde/likhait-technical-test/tree/bugfix/001-date-sortin
 Branch with Docker Fix:
 https://github.com/mondemonde/likhait-technical-test/tree/bugfix/001-sort-date
 
+Task Details:
+https://github.com/mondemonde/likhait-technical-test/blob/bugfix/001-sort-date/submission_notes/bug-fix-expense-ordering.md
+
 ## 2. Feature 001: Catalog Management
 
 PR :
-
+https://github.com/mondemonde/likhait-technical-test/pull/2
 
 Branch:
 https://github.com/mondemonde/likhait-technical-test/tree/feature/001-category-management
 
 Branch with Docker Fix:
+https://github.com/mondemonde/likhait-technical-test/tree/feature/001-category-mngt
 
 Task Details:
+https://github.com/mondemonde/likhait-technical-test/blob/bugfix/001-sort-date/submission_notes/FEATURE-001-Category-Management.md
+
 
 
 
