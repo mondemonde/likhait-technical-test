@@ -36,24 +36,24 @@ https://github.com/mondemonde/likhait-technical-test/blob/bugfix/001-sort-date/s
 ## 3. Feature 003: Future Date Validation
 
 PR :
+https://github.com/mondemonde/likhait-technical-test/pull/3
 
 Branch:
-
-Branch with Docker Fix:
+https://github.com/mondemonde/likhait-technical-test/tree/feature/003-future-date-validation
 
 Task Details:
-
+https://github.com/mondemonde/likhait-technical-test/blob/bugfix/001-sort-date/submission_notes/BONUS-001-Prevent-Future-Date-Expense-Creation.md
 
 
 ## 4. Feature 002: Handy utility for frontend developer
-
-PR : it adds npm scripts for running bankends and db to docker
+it adds npm scripts for running bankends and db to docker
     leaving you to easily debug the react frontend by running it in vscode only
 
+PR : 
+https://github.com/mondemonde/likhait-technical-test/pull/4
+
 Branch:
-
-Branch with Docker Fix:
-
+https://github.com/mondemonde/likhait-technical-test/tree/feature/002-frontend-script
 
 
 
