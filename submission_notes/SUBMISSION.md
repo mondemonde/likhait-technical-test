@@ -4,7 +4,8 @@ This notes explain the content of the different branches created in this repo
 ## 1. BugFix 001: Date sorting issue
 
 PR :
-https://github.com/mondemonde/likhait-technical-test/pull/1/changes/e1c4f8886b21595d752bf2bd3106a4eadf9322fa
+https://github.com/mondemonde/likhait-technical-test/pull/1
+
 
 Branch:
 https://github.com/mondemonde/likhait-technical-test/tree/bugfix/001-date-sorting
